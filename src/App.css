@@ -15,7 +15,10 @@ body {
   margin: 0 auto;
 }
 
-
+.appWrapperContent {
+  grid-area: content;
+  border:1px solid #2bbfbd;
+}
 
 
 

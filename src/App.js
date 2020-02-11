@@ -11,8 +11,11 @@ function App() {
         <div className="appWrapper">
             <Header/>
             <Navbar/>
-            <Dialogs/>
-            {/*<Profile/>*/}
+            <div className="appWrapperContent">
+                <Dialogs/>
+                {/*<Profile/>*/}
+            </div>
+
         </div>
     );
 }
