@@ -5,8 +5,20 @@ import MyPosts from './MyPosts/MyPosts';
 const Profile = () => {
     return (
         <div className={classes.content}>
-            <div className={classes.block1}>block1</div>
-            <div className={classes.block2}>block2</div>
+            <div className={classes.avatar}>
+                <img src="/img/avatar.png"/>
+            </div>
+            <div className={classes.avatarData}>
+                <div className={classes.data}>
+                    First Name: Alexsandr
+                    <br/>
+                    Last Name: Pupkin
+                    <br/>
+                    Specialization: Biologist
+                    <br/>
+                    Academic Degree: КБН
+                </div>
+            </div>
             <div className={classes.block3}>
                 <MyPosts/>
             </div>

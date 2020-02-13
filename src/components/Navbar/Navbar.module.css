@@ -12,3 +12,7 @@
 .item.active a {
     color: #2bbfbd;
 }
+
+.item a.active {
+    color: #2bbfbd;
+}

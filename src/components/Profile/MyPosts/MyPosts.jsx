@@ -3,7 +3,6 @@ import classes from './MyPosts.module.css';
 import  Post from './Post/Post';
 
 const MyPosts = (props) => {
-    debugger;
     return (
         <div>
             My posts
@@ -17,7 +16,6 @@ const MyPosts = (props) => {
             <div className={classes.posts}>
                 <Post message = "How? are you" counts = "1"/>
                 <Post message = "Hi you you" counts = "2"/>
-                <Post message = "Yo Yo Yo" counts = "3"/>
             </div>
         </div>
     );
