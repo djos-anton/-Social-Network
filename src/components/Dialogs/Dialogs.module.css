@@ -1,1 +1,49 @@
+div .dialogs {
+    display: grid;
 
+    grid-template-areas:
+            "dialogItem messages"
+            "dialogItem block3";
+    grid-template-rows: 1fr 1fr;
+    grid-auto-columns: 1fr 1fr;
+    grid-gap: 15px;
+    color: #9e9e9e;
+}
+
+.dialogItem {
+    grid-area: dialogItem;
+
+    background: #fff;
+    border:1px solid #2bbfbd;
+    margin: 15px 0 15px 15px;
+    padding: 15px;
+}
+
+.dialog {
+    padding-bottom: 5px;
+}
+
+.dialog.active {
+    color: #2bbfbd;
+}
+
+.messages {
+    grid-area: messages;
+
+    background: #fff;
+    border:1px solid #2bbfbd;
+    margin: 15px 15px 0 0;
+    padding: 15px;
+}
+
+.message {
+    padding-bottom: 5px;
+}
+
+.block3 {
+    grid-area: block3;
+
+    background: #fff;
+    border:1px solid #2bbfbd;
+    margin: 0 15px 15px 0;
+}

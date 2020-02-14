@@ -20,7 +20,9 @@ const Profile = () => {
                 </div>
             </div>
             <div className={classes.block3}>
-                <MyPosts/>
+                <div className={classes.data}>
+                    <MyPosts/>
+                </div>
             </div>
 
         </div>
