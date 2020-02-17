@@ -1,3 +1,15 @@
 img {
     width: 70px;
 }
+
+.data {
+    padding: 15px;
+}
+
+.block3 {
+    grid-area: block3;
+
+    background: #fff;
+    border:1px solid #2bbfbd;
+    margin: 0 15px 15px 0;
+}

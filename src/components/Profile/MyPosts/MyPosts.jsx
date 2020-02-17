@@ -4,7 +4,8 @@ import  Post from './Post/Post';
 
 const MyPosts = (props) => {
     return (
-        <div>
+        <div className={classes.block3}>
+            <div className={classes.data}>
             My posts
             <div>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
@@ -16,6 +17,7 @@ const MyPosts = (props) => {
             <div className={classes.posts}>
                 <Post message = "How? are you" counts = "1"/>
                 <Post message = "Hi you you" counts = "2"/>
+            </div>
             </div>
         </div>
     );

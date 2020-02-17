@@ -10,7 +10,7 @@ div .content {
     color: #9e9e9e;
 }
 
-.avatar {
+/*.avatar {
     grid-area: avatar;
 
     background: #fff;
@@ -21,19 +21,22 @@ div .content {
 .avatar img {
     padding: 15px;
     width: 233px;
-}
+}*/
 
-.avatarData {
+/*.avatarData {
     grid-area: avatarData;
 
     background: #fff;
     border:1px solid #2bbfbd;
     margin: 15px 15px 0 0;
-}
+}*/
 
 .data {
     padding: 15px;
 }
+/*
+
+
 
 .block3 {
     grid-area: block3;
@@ -41,4 +44,4 @@ div .content {
     background: #fff;
     border:1px solid #2bbfbd;
     margin: 0 15px 15px 0;
-}
+}*/
