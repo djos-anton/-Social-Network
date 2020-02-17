@@ -21,10 +21,16 @@ div .dialogs {
 
 .dialog {
     padding-bottom: 5px;
+
 }
 
-.dialog.active {
+.dialog.active a {
     color: #2bbfbd;
+}
+
+.dialog a {
+    text-decoration: none;
+    color: #9e9e9e;
 }
 
 .messages {
@@ -46,4 +52,5 @@ div .dialogs {
     background: #fff;
     border:1px solid #2bbfbd;
     margin: 0 15px 15px 0;
+    padding: 15px;
 }
