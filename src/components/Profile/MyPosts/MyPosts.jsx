@@ -3,6 +3,13 @@ import classes from './MyPosts.module.css';
 import  Post from './Post/Post';
 
 const MyPosts = (props) => {
+
+    let postsData = [
+        {id : "1", message : "How? are you", counts : "21"},
+        {id : "2", message : "Hi you you", counts : "12"},
+        {id : "3", message : "Yo yo yo", counts : "121"}
+    ];
+
     return (
         <div className={classes.block3}>
             <div className={classes.data}>
@@ -15,8 +22,9 @@ const MyPosts = (props) => {
                 </div>
             </div>
             <div className={classes.posts}>
-                <Post message = "How? are you" counts = "1"/>
-                <Post message = "Hi you you" counts = "2"/>
+                <Post id = {postsData[0].id} message = {postsData[0].message} counts = {postsData[0].counts}/>
+                <Post id = {postsData[1].id} message = {postsData[1].message} counts = {postsData[1].counts}/>
+                <Post id = {postsData[2].id} message = {postsData[2].message} counts = {postsData[2].counts}/>
             </div>
             </div>
         </div>

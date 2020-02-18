@@ -4,9 +4,6 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileData from "./ProfileData/ProfileData";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-
-
-
 const Profile = () => {
     return (
         <div className={classes.content}>
