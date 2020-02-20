@@ -10,7 +10,7 @@ import Message from "./Message/Message";
 
 const Dialogs = (props) => {
 
-    let dialogs = [
+    /*let dialogs = [
         {id : "1", name : "Uchitel"},
         {id : "2", name : "Telesic"},
         {id : "3", name : "Egorushka"},
@@ -24,11 +24,11 @@ const Dialogs = (props) => {
         {id : "2", message : "How are you?"},
         {id : "3", message : "Hello"},
         {id : "4", message : "Yo Yo"}
-    ];
+    ];*/
 
-    let dialogsElements = dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name}/>);
+    let dialogsElements = props.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name}/>);
 
-    let messagesElements = messages.map(message => <Message id = {message.id} message= {message.message}/>);
+    let messagesElements = props.messages.map(message => <Message id = {message.id} message= {message.message}/>);
 
     /*let dialogsElements = [
         <DialogItem id = {dialogsData[0].id} name = {dialogsData[0].name}/>,
