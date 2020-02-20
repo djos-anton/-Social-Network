@@ -4,14 +4,15 @@ import  Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-    let postsData = [
+
+    /*let postsData = [
         {id : "1", message : "How? are you", counts : "21"},
         {id : "2", message : "Hi you you", counts : "12"},
         {id : "3", message : "Yo yo yo", counts : "121"},
-        {id : "3", message : "Yo yo yo", counts : "1221"}
-    ];
+        {id : "4", message : "Yo yo yo", counts : "1221"}
+    ];*/
 
-    let postsElement = postsData.map(p => <Post id = {p.id} message = {p.message} counts = {p.counts}/>);
+    let postsElement = props.postsData.map(p => <Post id = {p.id} message = {p.message} counts = {p.counts}/>);
 
     /*let posts = [
         <Post id = {postsData[0].id} message = {postsData[0].message} counts = {postsData[0].counts}/>,

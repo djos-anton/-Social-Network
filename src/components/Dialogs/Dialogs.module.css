@@ -19,10 +19,10 @@ div .dialogs {
     padding: 15px;
 }
 
-.dialog {
+/*.dialog {
     padding-bottom: 5px;
 
-}
+}*/
 
 .dialog.active a {
     color: #2bbfbd;
@@ -42,9 +42,9 @@ div .dialogs {
     padding: 15px;
 }
 
-.message {
+/*.message {
     padding-bottom: 5px;
-}
+}*/
 
 .block3 {
     grid-area: block3;

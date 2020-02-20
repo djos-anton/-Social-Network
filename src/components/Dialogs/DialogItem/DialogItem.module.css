@@ -1,0 +1,13 @@
+.dialog a {
+    text-decoration: none;
+    color: #9e9e9e;
+}
+
+.dialog {
+    padding-bottom: 5px;
+
+}
+
+.dialog.active a {
+    color: #2bbfbd;
+}
