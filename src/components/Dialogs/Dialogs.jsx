@@ -26,7 +26,7 @@ const Dialogs = (props) => {
         {id : "4", message : "Yo Yo"}
     ];*/
 
-    let dialogsElements = props.state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name}/>);
+    let dialogsElements = props.state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);
 
     let messagesElements = props.state.messages.map(message => <Message id = {message.id} message= {message.message}/>);
 

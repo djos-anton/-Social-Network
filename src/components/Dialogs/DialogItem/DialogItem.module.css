@@ -11,3 +11,14 @@
 .dialog.active a {
     color: #2bbfbd;
 }
+
+.dialog img {
+    border-radius: 50%;
+    width: 50px;
+    vertical-align: middle;
+}
+
+.dialog span {
+    margin-left: 5px;
+
+}
