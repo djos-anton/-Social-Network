@@ -45,10 +45,13 @@ let state = {
             {id : "2", message : "How are you?"},
             {id : "3", message : "Hello"},
             {id : "4", message : "Yo Yo"}
+        ],
+
+        traMessages : [
+            {id : "1", trainingMessage : "training Hi"},
+            {id : "2", trainingMessage : "training Yo Yo"}
         ]
     }
-
-
 }
 
 export default state;

@@ -36,6 +36,11 @@ const App = (props) => {
             {id : "4", message : "Yo Yo"}
         ];*/
 
+    /*let traMessages = [
+    {id : "1", trainingMessage : "training Hi"},
+    {id : "2", trainingMessage : "training Yo Yo"}
+];*/
+
     return (
         <BrowserRouter>
         <div className="appWrapper">

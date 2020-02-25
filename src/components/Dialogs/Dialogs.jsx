@@ -3,12 +3,18 @@ import classes from "./Dialogs.module.css";
 import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import TrainingMessage from "./TrainingMessage/TrainingMessage";
 
 
 
 
 
 const Dialogs = (props) => {
+
+    /*let traMessages = [
+        {id : "1", trainingMessage : "training Hi"},
+        {id : "2", trainingMessage : "training Yo Yo"}
+    ];*/
 
     /*let dialogs = [
         {id : "1", name : "Uchitel"},
@@ -30,6 +36,8 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages.map(message => <Message id = {message.id} message= {message.message}/>);
 
+    let trainingMess = props.state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);
+
     /*let dialogsElements = [
         <DialogItem id = {dialogsData[0].id} name = {dialogsData[0].name}/>,
         <DialogItem id = {dialogsData[1].id} name = {dialogsData[1].name}/>,
@@ -46,6 +54,12 @@ const Dialogs = (props) => {
         <Message id = {messagesData[3].id} message= {messagesData[3].message}/>
     ]*/
 
+
+    /*let trainingMess = [
+        <TrainingMessage id = {traMessages[0].id} trainingMessage = {traMessages[0].trainingMessage}/>,
+        <TrainingMessage id = {traMessages[1].id} trainingMessage = {traMessages[1].trainingMessage}/>
+    ];*/
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogItem}>
@@ -58,7 +72,9 @@ const Dialogs = (props) => {
                 { messagesElements }
 
             </div>
-            <div className={classes.block3}>block3</div>
+            <div className={classes.block3}>
+                { trainingMess }
+            </div>
         </div>
     );
 }
