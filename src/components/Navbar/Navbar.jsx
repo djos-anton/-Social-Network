@@ -5,7 +5,14 @@ import FriendsNavBar from "./FriendsNavBar/FriendsNavBar";
 
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+    /*let friend = [
+        {id : "6", name : "VolodFo", img : "/img/vov250.png"},
+        {id : "4", name : "AndruhK", img : "/img/and250.png"},
+        {id : "2", name : "IvasShv", img : "/img/vas250.png"}
+    ];*/
+
     return (
         <div className={classes.nav}>
             <div className={`${classes.item} ${classes.active}`}>
@@ -23,7 +30,9 @@ const Navbar = () => {
             <div className={classes.item}>
                 <NavLink to="/group" activeClassName={classes.active}>Group</NavLink>
             </div>
-            <FriendsNavBar/>
+
+            <FriendsNavBar friend = {props.friend}/>
+
         </div>
     );
 }

@@ -41,11 +41,17 @@ const App = (props) => {
     {id : "2", trainingMessage : "training Yo Yo"}
 ];*/
 
+    let friend = [
+        {id : "6", name : "VolodFo", img : "/img/vov250.png"},
+        {id : "4", name : "AndruhK", img : "/img/and250.png"},
+        {id : "2", name : "IvasShv", img : "/img/vas250.png"}
+    ];
+
     return (
         <BrowserRouter>
         <div className="appWrapper">
             <Header/>
-            <Navbar/>
+            <Navbar friend={friend}/>
             <div className="appWrapperContent">
                 <Route path='/dialogs' render={ () => <Dialogs state={props.state.messagesPage}/>}/>
                 <Route path='/profile' render={ () => <Profile state={props.state.profilePage}/>}/>
