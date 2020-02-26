@@ -31,7 +31,7 @@ const Navbar = (props) => {
                 <NavLink to="/group" activeClassName={classes.active}>Group</NavLink>
             </div>
 
-            <FriendsNavBar friend = {props.friend}/>
+            <FriendsNavBar friend = {props.state.friend}/>
 
         </div>
     );

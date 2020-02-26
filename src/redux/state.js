@@ -56,14 +56,14 @@ let state = {
             {id : "1", trainingMessage : "training Hi"},
             {id : "2", trainingMessage : "training Yo Yo"}
         ]
-    }/*,
+    },
     sideBar : {
         friend : [
             {id : "6", name : "VolodFo", img : "/img/vov250.png"},
             {id : "4", name : "AndruhK", img : "/img/and250.png"},
             {id : "2", name : "IvasShv", img : "/img/vas250.png"}
         ]
-    }*/
+    }
 }
 
 export default state;
