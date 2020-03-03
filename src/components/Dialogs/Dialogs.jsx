@@ -60,6 +60,13 @@ const Dialogs = (props) => {
         <TrainingMessage id = {traMessages[1].id} trainingMessage = {traMessages[1].trainingMessage}/>
     ];*/
 
+    let addElementSms = React.createRef();
+
+    let Addsms = () => {
+        let text = addElementSms.current.value;
+        alert(text);
+    }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogItem}>
@@ -74,6 +81,12 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.block3}>
                 { trainingMess }
+                <div>
+                    <textarea ref={ addElementSms }></textarea>
+                </div>
+                <div>
+                    <button onClick={ Addsms }>Add sms</button>
+                </div>
             </div>
         </div>
     );

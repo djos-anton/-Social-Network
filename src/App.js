@@ -48,7 +48,6 @@ const App = (props) => {
     ];*/
 
     return (
-        <BrowserRouter>
         <div className="appWrapper">
             <Header/>
             <Navbar state={props.state.sideBar}/>
@@ -60,7 +59,6 @@ const App = (props) => {
                 <Route path='/news' component={News}/>
             </div>
         </div>
-        </BrowserRouter>
     );
 }
 
