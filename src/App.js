@@ -9,6 +9,7 @@ import Group from "./components/Group/Group";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
+import {addPost} from "./redux/state";
 
 
 const App = (props) => {
@@ -53,7 +54,10 @@ const App = (props) => {
             <Navbar state={props.state.sideBar}/>
             <div className="appWrapperContent">
                 <Route path='/dialogs' render={ () => <Dialogs state={props.state.messagesPage}/>}/>
-                <Route path='/profile' render={ () => <Profile state={props.state.profilePage}/>}/>
+                <Route path='/profile'
+                       render={ () => <Profile
+                           state={props.state.profilePage}
+                           addPost={props.addPost}/>}/>
                 <Route path='/group' component={Group}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/news' component={News}/>
