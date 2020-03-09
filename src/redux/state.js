@@ -1,4 +1,5 @@
 /*import React from "react";*/
+
 /*let postsData = [
     {id : "1", message : "How? are you", counts : "21"},
     {id : "2", message : "Hi you you", counts : "12"},
@@ -27,6 +28,8 @@ let messages = [
         {id : "4", name : "AndruhK", img : "/img/and250.png"},
         {id : "2", name : "IvasShv", img : "/img/vas250.png"}
     ];*/
+
+import {rerenderEntireTree} from "../render";
 
 let state = {
     profilePage : {
@@ -73,6 +76,7 @@ export let addPost = (postMessage) => {
       counts: 7
     };
     state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
 }
 
 export default state;
