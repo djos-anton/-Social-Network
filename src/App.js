@@ -9,8 +9,7 @@ import Group from "./components/Group/Group";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
-import {addPost} from "./redux/state";
-
+import {addPost, updateNewPostText} from "./redux/state";
 
 const App = (props) => {
 
@@ -20,7 +19,6 @@ const App = (props) => {
         {id : "3", message : "Yo1 yo yo", counts : "121"},
         {id : "4", message : "Yo2 you yo", counts : "1221"}
     ];*/
-
     /*let dialogs = [
             {id : "1", name : "Uchitel"},
             {id : "2", name : "Telesic"},
@@ -36,12 +34,10 @@ const App = (props) => {
             {id : "3", message : "Hello"},
             {id : "4", message : "Yo Yo"}
         ];*/
-
     /*let traMessages = [
     {id : "1", trainingMessage : "training Hi"},
     {id : "2", trainingMessage : "training Yo Yo"}
 ];*/
-
     /*let friend = [
         {id : "6", name : "VolodFo", img : "/img/vov250.png"},
         {id : "4", name : "AndruhK", img : "/img/and250.png"},
@@ -56,8 +52,10 @@ const App = (props) => {
                 <Route path='/dialogs' render={ () => <Dialogs state={props.state.messagesPage}/>}/>
                 <Route path='/profile'
                        render={ () => <Profile
-                           state={props.state.profilePage}
-                           addPost={props.addPost}/>}/>
+                           profilePage={props.state.profilePage}
+                           addPost={props.addPost}
+                           updateNewPostText={props.updateNewPostText}
+                       />}/>
                 <Route path='/group' component={Group}/>
                 <Route path='/music' component={Music}/>
                 <Route path='/news' component={News}/>

@@ -3,9 +3,7 @@ import classes from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import ProfileData from "./ProfileData/ProfileData";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import {addPost} from "../../redux/state";
-
-
+import {addPost, updateNewPostText} from "../../redux/state";
 
 const Profile = (props) => {
 
@@ -21,7 +19,10 @@ const Profile = (props) => {
 
             <ProfileInfo/>
             <ProfileData/>
-            <MyPosts postsData={props.state.postsData} addPost={props.addPost}/>
+            <MyPosts postsData={props.profilePage.postsData}
+                     newPostText={props.profilePage.newPostText}
+                     updateNewPostText={props.updateNewPostText}
+                     addPost={props.addPost}/>
         </div>
     );
 }

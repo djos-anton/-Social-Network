@@ -1,5 +1,4 @@
 /*import React from "react";*/
-
 /*let postsData = [
     {id : "1", message : "How? are you", counts : "21"},
     {id : "2", message : "Hi you you", counts : "12"},
@@ -22,7 +21,6 @@ let messages = [
     {id : "3", message : "Hello"},
     {id : "4", message : "Yo Yo"}
 ];*/
-
 /*let friend = [
         {id : "6", name : "VolodFo", img : "/img/vov250.png"},
         {id : "4", name : "AndruhK", img : "/img/and250.png"},
@@ -38,7 +36,8 @@ let state = {
             {id : "2", message : "Hi you you", counts : "12"},
             {id : "3", message : "Yo1 yo yo", counts : "121"},
             {id : "4", message : "Yo2 you yo", counts : "1221"}
-        ]
+        ],
+        newPostText: 'social_set'
     },
     messagesPage : {
         dialogs : [
@@ -69,13 +68,21 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = (/*postMessage*/) => {
     let newPost = {
       id: 5,
-      message: postMessage,
+      message: /*postMessage*/ state.profilePage.newPostText,
       counts: 7
     };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = "";
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
 }
 
