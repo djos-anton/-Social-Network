@@ -1,3 +1,8 @@
+/*import {rerenderEntireTree} from "../render";*/
+let rerenderEntireTree = () => {
+    console.log('state changed');
+}
+
 /*import React from "react";*/
 /*let postsData = [
     {id : "1", message : "How? are you", counts : "21"},
@@ -26,8 +31,6 @@ let messages = [
         {id : "4", name : "AndruhK", img : "/img/and250.png"},
         {id : "2", name : "IvasShv", img : "/img/vas250.png"}
     ];*/
-
-import {rerenderEntireTree} from "../render";
 
 let state = {
     profilePage : {
@@ -70,7 +73,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = (/*postMessage*/) => {
+export const addPost = (/*postMessage*/) => {
     let newPost = {
       id: 5,
       message: /*postMessage*/ state.profilePage.newPostText,
@@ -81,9 +84,13 @@ export let addPost = (/*postMessage*/) => {
     rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
