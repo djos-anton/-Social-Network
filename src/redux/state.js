@@ -38,29 +38,48 @@ let store = {
             ]
         }
     },
-    getState(){
-        return this._state;
-    },
     _callSubscriber()  {
         console.log('state changed');
     },
-    addPost() {
+
+    getState(){
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    dispatch(action){
+        if(action.type === "ADD-POST"){
+            let newPost = {
+                id: 5,
+                message: /*postMessage*/ this._state.profilePage.newPostText,
+                counts: 7
+            };
+            this._state.profilePage.postsData.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
+    }
+
+    /*addPost() {
         let newPost = {
             id: 5,
-            message: /*postMessage*/ this._state.profilePage.newPostText,
+            message: /!*postMessage*!/ this._state.profilePage.newPostText,
             counts: 7
         };
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.newPostText = "";
         this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {
+    },*/
+    /*updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    }
+    },*/
+
 }
 
 /*import {rerenderEntireTree} from "../render";*/
