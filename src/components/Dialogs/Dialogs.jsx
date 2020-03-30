@@ -4,12 +4,15 @@ import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import TrainingMessage from "./TrainingMessage/TrainingMessage";
+import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
 
 
 
 
 
 const Dialogs = (props) => {
+
+    let state = props.store.getState().messagesPage;
 
     /*let traMessages = [
         {id : "1", trainingMessage : "training Hi"},
@@ -32,11 +35,17 @@ const Dialogs = (props) => {
         {id : "4", message : "Yo Yo"}
     ];*/
 
-    let dialogsElements = props.state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);
+    /*let dialogsElements = props.state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);*/
+    let dialogsElements = state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);
 
-    let messagesElements = props.state.messages.map(message => <Message id = {message.id} message= {message.message}/>);
+    /*let messagesElements = props.state.messages.map(message => <Message id = {message.id} message= {message.message}/>);*/
+    let messagesElements = state.messages.map(message => <Message id = {message.id} message= {message.message}/>);
 
-    let trainingMess = props.state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);
+    /*let trainingMess = props.state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);*/
+    let trainingMess = state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);
+
+    /*let newMessageBody = props.state.newMessageBody;*/
+    let newMessageBody = state.newMessageBody;
 
     /*let dialogsElements = [
         <DialogItem id = {dialogsData[0].id} name = {dialogsData[0].name}/>,
@@ -67,6 +76,15 @@ const Dialogs = (props) => {
         alert(text);
     }
 
+    let onSendMessageClick = () => {
+        props.store.dispatch(sendMessageCreator());
+    }
+
+    let onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.store.dispatch(updateNewMessageBodyCreator(body));
+    }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogItem}>
@@ -76,7 +94,11 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.messages}>
 
-                { messagesElements }
+                <div>{messagesElements}</div>
+                <div>
+                    <div><textarea value={newMessageBody} onChange={onNewMessageChange} placeholder="start writing a message"></textarea></div>
+                    <div><button onClick={ onSendMessageClick }>Send</button></div>
+                </div>
 
             </div>
             <div className={classes.block3}>
