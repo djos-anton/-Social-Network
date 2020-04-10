@@ -1,8 +1,15 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+//const ADD_POST = "ADD-POST";
+//const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
-const SEND_MESSAGE = "SEND-MESSAGE";
+//const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
+//const SEND_MESSAGE = "SEND-MESSAGE";
+
+//const UPDATE_NEW_TRAIN_MESSAGE_BODY = "UPDATE-NEW-TRAIN-MESSAGE-BODY";
+//const SEND_TRAIN_MESSAGE = "SEND-TRAIN-MESSAGE";
+
+import profileReducer from "./profileReducer";
+import messagesReducer from "./messagesReducer";
+import sideBarReducer from "./sideBarReducer";
 
 let store = {
     _state : {
@@ -31,10 +38,11 @@ let store = {
                 {id : "4", message : "Yo Yo"}
             ],
             traMessages : [
-                {id : "1", trainingMessage : "training Hi"},
-                {id : "2", trainingMessage : "training Yo Yo"}
+                {id : "1", trainingMessage : "Ho Hi Ha"},
+                {id : "2", trainingMessage : "Yo Yo Yo"}
             ],
-            newMessageBody: ""
+            newMessageBody: "",
+            newTrainMessageBody: ""
         },
         sideBar : {
             friend : [
@@ -56,10 +64,17 @@ let store = {
     },
 
     dispatch(action){
-        if(action.type === ADD_POST){
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.sideBar = sideBarReducer(this._state.sideBar, action);
+
+        this._callSubscriber(this._state);
+
+        /*if(action.type === ADD_POST){
             let newPost = {
                 id: 5,
-                message: /*postMessage*/ this._state.profilePage.newPostText,
+                message: /!*postMessage*!/ this._state.profilePage.newPostText,
                 counts: 7
             };
             this._state.profilePage.postsData.push(newPost);
@@ -76,7 +91,15 @@ let store = {
             this._state.messagesPage.newMessageBody = "";
             this._state.messagesPage.messages.push({id:7, message : body });
             this._callSubscriber(this._state);
-        }
+        } else if(action.type === UPDATE_NEW_TRAIN_MESSAGE_BODY) {
+            this._state.messagesPage.newTrainMessageBody = action.trainBody;
+            this._callSubscriber(this._state);
+        } else if(action.type === SEND_TRAIN_MESSAGE) {
+            let trainBody = this._state.messagesPage.newTrainMessageBody;
+            this._state.messagesPage.newTrainMessageBody = "";
+            this._state.messagesPage.traMessages.push({id:5, trainingMessage : trainBody });
+            this._callSubscriber(this._state);
+        }*/
     }
 
     /*addPost() {
@@ -96,13 +119,17 @@ let store = {
 
 }
 
-export const addPostActionCreator = () => ({ type : ADD_POST })
+/*export const addPostActionCreator = () => ({ type : ADD_POST })
 export const updateNewPostTextActionCreator = (text) =>
-    ({ type: UPDATE_NEW_POST_TEXT, newText : text })
+    ({ type: UPDATE_NEW_POST_TEXT, newText : text })*/
 
-export const sendMessageCreator = () => ({ type : SEND_MESSAGE })
+/*export const sendMessageCreator = () => ({ type : SEND_MESSAGE })
 export const updateNewMessageBodyCreator = (body) =>
     ({ type: UPDATE_NEW_MESSAGE_BODY, body : body })
+
+export const sendTrainMessageCreator = () => ({ type : SEND_TRAIN_MESSAGE })
+export const updateNewTrainMessageBodyCreator = (trainBody) =>
+    ({ type: UPDATE_NEW_TRAIN_MESSAGE_BODY, trainBody : trainBody })*/
 
 /*import {rerenderEntireTree} from "../render";*/
 /*let rerenderEntireTree = () => {
@@ -176,8 +203,6 @@ let messages = [
         ]
     }
 }*/
-
-
 
 /*export const addPost = (/!*postMessage*!/) => {
     let newPost = {

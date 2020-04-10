@@ -4,7 +4,13 @@ import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import TrainingMessage from "./TrainingMessage/TrainingMessage";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/state";
+import {
+    sendMessageCreator,
+    sendTrainMessageCreator,
+    updateNewMessageBodyCreator,
+    updateNewTrainMessageBodyCreator
+} from "../../redux/messagesReducer";
+import {placeholder} from "@babel/types";
 
 
 
@@ -46,6 +52,7 @@ const Dialogs = (props) => {
 
     /*let newMessageBody = props.state.newMessageBody;*/
     let newMessageBody = state.newMessageBody;
+    let newTrainMessageBody = state.newTrainMessageBody;
 
     /*let dialogsElements = [
         <DialogItem id = {dialogsData[0].id} name = {dialogsData[0].name}/>,
@@ -69,11 +76,17 @@ const Dialogs = (props) => {
         <TrainingMessage id = {traMessages[1].id} trainingMessage = {traMessages[1].trainingMessage}/>
     ];*/
 
-    let addElementSms = React.createRef();
+    /*let addElementSms = React.createRef();*/
 
-    let Addsms = () => {
-        let text = addElementSms.current.value;
-        alert(text);
+    let onSendTrainMessageClick = () => {
+        /*let text = addElementSms.current.value;
+        alert(text);*/
+        props.store.dispatch(sendTrainMessageCreator())
+    }
+
+    let onNewTrainMessageChange = (e) => {
+        let trainBody = e.target.value;
+        props.store.dispatch(updateNewTrainMessageBodyCreator(trainBody))
     }
 
     let onSendMessageClick = () => {
@@ -96,18 +109,22 @@ const Dialogs = (props) => {
 
                 <div>{messagesElements}</div>
                 <div>
-                    <div><textarea value={newMessageBody} onChange={onNewMessageChange} placeholder="start writing a message"></textarea></div>
+                    <div><textarea value={newMessageBody}
+                                   onChange={onNewMessageChange}
+                                   placeholder="start writing a message">
+                    </textarea></div>
                     <div><button onClick={ onSendMessageClick }>Send</button></div>
                 </div>
 
             </div>
             <div className={classes.block3}>
-                { trainingMess }
+                <div>{trainingMess}</div>
+                <div><textarea value={newTrainMessageBody}
+                        onChange={onNewTrainMessageChange}
+                        placeholder="HO-HO-HO">
+                    </textarea></div>
                 <div>
-                    <textarea ref={ addElementSms }></textarea>
-                </div>
-                <div>
-                    <button onClick={ Addsms }>Add sms</button>
+                    <button onClick={ onSendTrainMessageClick }>Add sms</button>
                 </div>
             </div>
         </div>
