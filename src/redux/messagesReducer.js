@@ -4,7 +4,30 @@ const SEND_MESSAGE = "SEND-MESSAGE";
 const UPDATE_NEW_TRAIN_MESSAGE_BODY = "UPDATE-NEW-TRAIN-MESSAGE-BODY";
 const SEND_TRAIN_MESSAGE = "SEND-TRAIN-MESSAGE";
 
-const messagesReducer = (state, action) => {
+let initialState = {
+    dialogs : [
+        {id : "1", name : "UchGoda", img : "/img/ug250.png"},
+        {id : "2", name : "IvasShv", img : "/img/vas250.png"},
+        {id : "3", name : "EgoruBr", img : "/img/eg250.png"},
+        {id : "4", name : "AndruhK", img : "/img/and250.png"},
+        {id : "5", name : "VladMel", img : "/img/vl250.png"},
+        {id : "6", name : "VolodFo", img : "/img/vov250.png"}
+    ],
+    messages : [
+        {id : "1", message : "Hi"},
+        {id : "2", message : "How are you?"},
+        {id : "3", message : "Hello"},
+        {id : "4", message : "Yo Yo"}
+    ],
+    traMessages : [
+        {id : "1", trainingMessage : "Ho Hi Ha"},
+        {id : "2", trainingMessage : "Yo Yo Yo"}
+    ],
+    newMessageBody: "",
+    newTrainMessageBody: ""
+};
+
+const messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY :
