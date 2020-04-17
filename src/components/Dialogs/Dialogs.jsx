@@ -18,7 +18,7 @@ import {placeholder} from "@babel/types";
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().messagesPage;
+    let state = props.messagesPage;
 
     /*let traMessages = [
         {id : "1", trainingMessage : "training Hi"},
@@ -81,21 +81,25 @@ const Dialogs = (props) => {
     let onSendTrainMessageClick = () => {
         /*let text = addElementSms.current.value;
         alert(text);*/
-        props.store.dispatch(sendTrainMessageCreator())
+        props.sendTrainMessage();
+        //props.store.dispatch(sendTrainMessageCreator())
     }
 
     let onNewTrainMessageChange = (e) => {
         let trainBody = e.target.value;
-        props.store.dispatch(updateNewTrainMessageBodyCreator(trainBody))
+        props.updateNewTrainMessageBody(trainBody);
+        //props.store.dispatch(updateNewTrainMessageBodyCreator(trainBody))
     }
 
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator());
+        props.sendMessage();
+        //props.store.dispatch(sendMessageCreator());
     }
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body));
+        props.updateNewMessageBody(body);
+        //props.store.dispatch(updateNewMessageBodyCreator(body));
     }
 
     return (

@@ -10,6 +10,7 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 import {addPost, updateNewPostText} from "./redux/state";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
 
@@ -49,11 +50,11 @@ const App = (props) => {
             <Header/>
             <Navbar state={props.state.sideBar}/>
             <div className="appWrapperContent">
-                <Route path='/dialogs' render={ () => <Dialogs store={props.store} /*state={props.state.messagesPage}*//>}/>
+                <Route path='/dialogs' render={ () => <DialogsContainer store={props.store} /*state={props.state.messagesPage}*//>}/>
                 <Route path='/profile'
-                       render={ () => <Profile
-                           profilePage={props.state.profilePage}
-                           dispatch={props.dispatch}
+                       render={ () => <Profile store={props.store}
+                           //profilePage={props.state.profilePage}
+                           //dispatch={props.dispatch}
                            /*addPost={props.addPost}
                            updateNewPostText={props.updateNewPostText}*/
                        />}/>

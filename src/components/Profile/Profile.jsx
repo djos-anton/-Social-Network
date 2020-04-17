@@ -4,6 +4,7 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileData from "./ProfileData/ProfileData";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import {addPost, updateNewPostText} from "../../redux/state";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
 
@@ -19,9 +20,9 @@ const Profile = (props) => {
 
             <ProfileInfo/>
             <ProfileData/>
-            <MyPosts postsData={props.profilePage.postsData}
-                     newPostText={props.profilePage.newPostText}
-                     dispatch = {props.dispatch}
+            <MyPostsContainer store = {props.store} //postsData={props.profilePage.postsData}
+                     //newPostText={props.profilePage.newPostText}
+                     //dispatch = {props.dispatch}
                      /*updateNewPostText={props.updateNewPostText}
                      addPost={props.addPost}*//>
         </div>
