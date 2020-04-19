@@ -3,34 +3,53 @@ import React from "react";
 //import  Post from './Post/Post';
 import {addPostActionCreator, updateNewPostText, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
+import StoreContext from "./../../../StoreContext";
 
+const MyPostsContainer = (/*props*/) => {
 
-
-const MyPostsContainer = (props) => {
-
-    let state = props.store.getState();
-
-    let onAddPost = () => {
+    //let state = props.store.getState();
+    /*let onAddPost = () => {
         props.store.dispatch(addPostActionCreator());
+        //store.dispatch(addPostActionCreator());
         //props.dispatch(addPostActionCreator());
-        /*let text = newPostElement.current.value;*/
-        /*props.addPost(/!*text*!/);*/
+        /!*let text = newPostElement.current.value;*!/
+        /!*props.addPost(/!*text*!/);*!/
         //props.addPost();
-        /*props.updateNewPostText("");*/
-    }
-
-    let onPostChange = (text) => {
+        /!*props.updateNewPostText("");*!/
+    }*/
+    /*let onPostChange = (text) => {
         //let text = newPostElement.current.value;
         //props.updateNewPostText(text);
-        /*let action = {type: "UPDATE-NEW-POST-TEXT", newText:text };*/
+        /!*let action = {type: "UPDATE-NEW-POST-TEXT", newText:text };*!/
         let action = updateNewPostTextActionCreator(text);
         //props.dispatch(action);
         props.store.dispatch(action);
-    }
-
+        //store.dispatch(action);
+    }*/
     return (
-        <MyPosts updateNewPostText = { onPostChange } addPost = { onAddPost } postsData = { state.profilePage.postsData }
-                 newPostText={state.profilePage.newPostText}/>
+        <StoreContext.Consumer>
+            {(store) => {
+                //let state = props.store.getState();
+                let state = store.getState();
+
+                let onAddPost = () => {
+                    //props.store.dispatch(addPostActionCreator());
+                    store.dispatch(addPostActionCreator());
+                }
+
+                let onPostChange = (text) => {
+                    let action = updateNewPostTextActionCreator(text);
+                    //props.store.dispatch(action);
+                    store.dispatch(action);
+                }
+
+                return <MyPosts updateNewPostText={onPostChange}
+                                addPost={onAddPost}
+                                postsData={state.profilePage.postsData}
+                                newPostText={state.profilePage.newPostText}/>
+            }
+            }
+        </StoreContext.Consumer>
     );
 }
 

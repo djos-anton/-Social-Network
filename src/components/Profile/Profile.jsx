@@ -20,7 +20,7 @@ const Profile = (props) => {
 
             <ProfileInfo/>
             <ProfileData/>
-            <MyPostsContainer store = {props.store} //postsData={props.profilePage.postsData}
+            <MyPostsContainer /*store = {props.store}*/ //postsData={props.profilePage.postsData}
                      //newPostText={props.profilePage.newPostText}
                      //dispatch = {props.dispatch}
                      /*updateNewPostText={props.updateNewPostText}

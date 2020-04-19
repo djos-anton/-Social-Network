@@ -7,6 +7,8 @@ import FriendsNavBar from "./FriendsNavBar/FriendsNavBar";
 
 const Navbar = (props) => {
 
+    //=>>>>>>>>>>>let state = props.store.getState().sideBar;
+
     /*let friend = [
         {id : "6", name : "VolodFo", img : "/img/vov250.png"},
         {id : "4", name : "AndruhK", img : "/img/and250.png"},
@@ -31,7 +33,8 @@ const Navbar = (props) => {
                 <NavLink to="/group" activeClassName={classes.active}>Group</NavLink>
             </div>
 
-            <FriendsNavBar friend = {props.state.friend}/>
+            {/*<FriendsNavBar friend = {props.state.friend}/>*/}
+            <FriendsNavBar /*friend = {state.friend}*//>
 
         </div>
     );

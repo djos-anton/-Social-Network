@@ -48,11 +48,11 @@ const App = (props) => {
     return (
         <div className="appWrapper">
             <Header/>
-            <Navbar state={props.state.sideBar}/>
+            <Navbar /*state={props.state.sideBar}*/  /*store={props.store}*/ />
             <div className="appWrapperContent">
-                <Route path='/dialogs' render={ () => <DialogsContainer store={props.store} /*state={props.state.messagesPage}*//>}/>
+                <Route path='/dialogs' render={ () => <DialogsContainer /*store={props.store}*/ />}/>
                 <Route path='/profile'
-                       render={ () => <Profile store={props.store}
+                       render={ () => <Profile /*store={props.store}*/
                            //profilePage={props.state.profilePage}
                            //dispatch={props.dispatch}
                            /*addPost={props.addPost}

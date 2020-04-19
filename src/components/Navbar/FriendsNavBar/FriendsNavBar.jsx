@@ -1,8 +1,11 @@
 import React from "react";
 import classes from "./FriendsNavBar.module.css";
 import Friend from "./Friend/Friend";
+import StoreContext from "../../../StoreContext";
 
-const FriendsNavBar = (props) => {
+const FriendsNavBar = (/*props*/) => {
+    /*<<<<<<<<======*/
+    //let state = props.store.getState().sideBar;
 
     /*let friend = [
         {id : "6", name : "VolodFo", img : "/img/vov250.png"},
@@ -16,15 +19,27 @@ const FriendsNavBar = (props) => {
         <Friend id = {friend[2].id} name = {friend[2].name} img = {friend[2].img}/>
     ];*/
 
-    let friendsNavbar = props.friend.map(navBarFriends => <Friend id = {navBarFriends.id} name = {navBarFriends.name} img = {navBarFriends.img}/>);
+    /*let friendsNavbar = props.friend.map(navBarFriends => <Friend id = {navBarFriends.id}
+                                                                  name = {navBarFriends.name}
+                                                                  img = {navBarFriends.img}/>);*/
 
     return (
-        <div className={classes.friends}>
+        <StoreContext.Consumer>
+            { (store)=>{
+                let state = store.getState().sideBar;
+
+                let friendsNavbar = state.friend.map(navBarFriends => <Friend id = {navBarFriends.id}
+                                                                              name = {navBarFriends.name}
+                                                                              img = {navBarFriends.img}/>);
+       return <div className={classes.friends}>
             <div>Frients</div>
 
             { friendsNavbar }
 
         </div>
+            }
+            }
+        </StoreContext.Consumer>
     );
 }
 
