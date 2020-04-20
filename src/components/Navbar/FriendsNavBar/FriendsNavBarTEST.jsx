@@ -3,12 +3,7 @@ import classes from "./FriendsNavBar.module.css";
 import Friend from "./Friend/Friend";
 import StoreContext from "../../../StoreContext";
 
-const FriendsNavBar = (props) => {
-
-    let friendsNavbar = props.friend.map(navBarFriends => <Friend id = {navBarFriends.id}
-                                                                  name = {navBarFriends.name}
-                                                                  img = {navBarFriends.img}/>);
-
+const FriendsNavBar = (/*props*/) => {
     /*<<<<<<<<======*/
     //let state = props.store.getState().sideBar;
 
@@ -29,12 +24,22 @@ const FriendsNavBar = (props) => {
                                                                   img = {navBarFriends.img}/>);*/
 
     return (
-            <div className={classes.friends}>
+        <StoreContext.Consumer>
+            { (store)=>{
+                let state = store.getState().sideBar;
+
+                let friendsNavbar = state.friend.map(navBarFriends => <Friend id = {navBarFriends.id}
+                                                                              name = {navBarFriends.name}
+                                                                              img = {navBarFriends.img}/>);
+       return <div className={classes.friends}>
             <div>Frients</div>
 
             { friendsNavbar }
 
         </div>
+            }
+            }
+        </StoreContext.Consumer>
     );
 }
 
