@@ -7,8 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import store from "./redux/redux-store";
 /*import {addPost, updateNewPostText} from "./redux/state";*/
 import {BrowserRouter} from "react-router-dom";
-import {Provider} from "./StoreContext";
-
+//import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(

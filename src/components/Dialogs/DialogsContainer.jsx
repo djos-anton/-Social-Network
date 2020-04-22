@@ -12,13 +12,13 @@ import {
 } from "../../redux/messagesReducer";
 import {placeholder} from "@babel/types";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
-
-const DialogsContainer = (/*props*/) => {
+//import StoreContext from "../../StoreContext";
+import {connect} from "react-redux/es/alternate-renderers";
+/*const DialogsContainer = (/!*props*!/) => {
 
     //let state = props.store.getState().messagesPage;
 
-    /*let onSendTrainMessageClick = () => {
+    /!*let onSendTrainMessageClick = () => {
         props.store.dispatch(sendTrainMessageCreator());
         //store.dispatch(sendTrainMessageCreator());
     }
@@ -36,13 +36,13 @@ const DialogsContainer = (/*props*/) => {
     let onNewMessageChange = (body) => {
         props.store.dispatch(updateNewMessageBodyCreator(body));
         //store.dispatch(updateNewMessageBodyCreator(body));
-    }*/
+    }*!/
 
     return (
         <StoreContext.Consumer>
             {(store) => {
                 //let state = props.store.getState().messagesPage;
-                let state = store.getState().messagesPage;
+                //let state = store.getState().messagesPage;
 
                 let onSendTrainMessageClick = () => {
                     //props.store.dispatch(sendTrainMessageCreator());
@@ -68,11 +68,35 @@ const DialogsContainer = (/*props*/) => {
                          updateNewTrainMessageBody={onNewTrainMessageChange}
                          sendMessage={onSendMessageClick}
                          sendTrainMessage={onSendTrainMessageClick}
-                         messagesPage={state}/>
+                         messagesPage={store.getState().messagesPage}/>
             }
             }
         </StoreContext.Consumer>
     );
+}*/
+
+let mapStateToProps = (state) => {
+    return {
+        messagesPage: state.messagesPage
+    }
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageBody: (body) => {
+            dispatch(updateNewMessageBodyCreator(body));
+        },
+        updateNewTrainMessageBody: (trainBody) => {
+            dispatch(updateNewTrainMessageBodyCreator(trainBody));
+        },
+        sendMessage: () => {
+            dispatch(sendMessageCreator());
+        },
+        sendTrainMessage: () => {
+            dispatch(sendTrainMessageCreator());
+        }
+    }
+}
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 export default DialogsContainer;

@@ -12,10 +12,6 @@ import {
 } from "../../redux/messagesReducer";
 import {placeholder} from "@babel/types";
 
-
-
-
-
 const Dialogs = (props) => {
 
     let state = props.messagesPage;
