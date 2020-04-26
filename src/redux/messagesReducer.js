@@ -30,30 +30,46 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY :
-            state.newMessageBody = action.body;
+        case UPDATE_NEW_MESSAGE_BODY : {
+            let stateCopy = {...state};
+            //state.newMessageBody = action.body;
+            stateCopy.newMessageBody = action.body;
 
-            return state;
+            return stateCopy;
+        }
+        case SEND_MESSAGE : {
+            let stateCopy = {...state};
+            stateCopy.messages = [...state.messages];
+            //let body = state.newMessageBody;
+            let body = stateCopy.newMessageBody;
+            //state.newMessageBody = "";
+            stateCopy.newMessageBody = "";
+            //state.messages.push({id: 7, message: body});
+            stateCopy.messages.push({id: 7, message: body});
 
-        case SEND_MESSAGE :
-            let body = state.newMessageBody;
-            state.newMessageBody = "";
-            state.messages.push({ id:7, message : body });
+            return stateCopy;
+        }
+        case UPDATE_NEW_TRAIN_MESSAGE_BODY : {
+            let stateCopy = {...state};
+            //state.newTrainMessageBody = action.trainBody;
+            stateCopy.newTrainMessageBody = action.trainBody;
 
-            return state;
+            //return state;
+            return stateCopy;
+        }
+        case SEND_TRAIN_MESSAGE : {
+            let stateCopy = {...state};
+            stateCopy.traMessages = [...state.traMessages];
+            //let trainBody = state.newTrainMessageBody;
+            let trainBody = stateCopy.newTrainMessageBody;
+            //state.newTrainMessageBody = "";
+            stateCopy.newTrainMessageBody = "";
+            //state.traMessages.push({id: 5, trainingMessage: trainBody});
+            stateCopy.traMessages.push({id: 5, trainingMessage: trainBody});
 
-        case UPDATE_NEW_TRAIN_MESSAGE_BODY :
-            state.newTrainMessageBody = action.trainBody;
-
-            return state;
-
-        case SEND_TRAIN_MESSAGE :
-            let trainBody = state.newTrainMessageBody;
-            state.newTrainMessageBody = "";
-            state.traMessages.push({ id:5, trainingMessage : trainBody });
-
-            return state;
-
+            //return state;
+            return stateCopy;
+        }
         default : return state;
     }
 
