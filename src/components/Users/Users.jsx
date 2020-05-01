@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './News.module.css';
+import classes from './Users';
 
-const News = () => {
+const Users = () => {
     return (
         <div className={classes.content}>
-            News
+            Users
         </div>
     )
 }
 
-export default News;
+export default Users;

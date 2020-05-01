@@ -7,7 +7,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import {BrowserRouter, Route} from "react-router-dom";
 import Group from "./components/Group/Group";
 import Music from "./components/Music/Music";
-import News from "./components/News/News";
+import Users from "./components/Users/Users"
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 import {addPost, updateNewPostText} from "./redux/state";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -60,7 +60,7 @@ const App = (props) => {
                        />}/>
                 <Route path='/group' component={Group}/>
                 <Route path='/music' component={Music}/>
-                <Route path='/news' component={News}/>
+                <Route path='/users' render={() => <Users/>} />
             </div>
         </div>
     );
