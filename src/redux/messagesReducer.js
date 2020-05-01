@@ -85,7 +85,6 @@ const messagesReducer = (state = initialState, action) => {
             //let trainBody = stateCopy.newTrainMessageBody;
             //state.newTrainMessageBody = "";
             //stateCopy.newTrainMessageBody = "";
-            //state.traMessages.push({id: 5, trainingMessage: trainBody});
             //stateCopy.traMessages.push({id: 5, trainingMessage: trainBody});
 
             //return state;
