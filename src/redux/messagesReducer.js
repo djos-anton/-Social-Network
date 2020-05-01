@@ -29,47 +29,68 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
 
+        //let stateCopy;
+
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY : {
-            let stateCopy = {...state};
+        case UPDATE_NEW_MESSAGE_BODY :
+            //let stateCopy = {...state};
             //state.newMessageBody = action.body;
-            stateCopy.newMessageBody = action.body;
+            /*stateCopy =*/ return {
+                ...state,
+                newMessageBody: action.body
+            }
+            //stateCopy.newMessageBody = action.body;
 
-            return stateCopy;
-        }
-        case SEND_MESSAGE : {
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
+            //return stateCopy;
+
+        case SEND_MESSAGE :
+            //let stateCopy = {...state};
+            //stateCopy.messages = [...state.messages];
             //let body = state.newMessageBody;
-            let body = stateCopy.newMessageBody;
+            let body = state.newMessageBody;
+            /*stateCopy =*/ return {
+                ...state,
+                newMessageBody: "",
+                messages: [...state.messages, {id: 7, message: body}]
+            }
+
             //state.newMessageBody = "";
-            stateCopy.newMessageBody = "";
+            //stateCopy.newMessageBody = "";
             //state.messages.push({id: 7, message: body});
-            stateCopy.messages.push({id: 7, message: body});
+            //stateCopy.messages.push({id: 7, message: body});
 
-            return stateCopy;
-        }
-        case UPDATE_NEW_TRAIN_MESSAGE_BODY : {
-            let stateCopy = {...state};
+            //return stateCopy;
+
+        case UPDATE_NEW_TRAIN_MESSAGE_BODY :
+            //let stateCopy = {...state};
             //state.newTrainMessageBody = action.trainBody;
-            stateCopy.newTrainMessageBody = action.trainBody;
+            /*stateCopy =*/ return {
+                ...state,
+                newTrainMessageBody: action.trainBody
+            }
 
             //return state;
-            return stateCopy;
-        }
-        case SEND_TRAIN_MESSAGE : {
-            let stateCopy = {...state};
-            stateCopy.traMessages = [...state.traMessages];
+            //return stateCopy;
+
+        case SEND_TRAIN_MESSAGE :
+            //let stateCopy = {...state};
+            //stateCopy.traMessages = [...state.traMessages];
             //let trainBody = state.newTrainMessageBody;
-            let trainBody = stateCopy.newTrainMessageBody;
+            let trainBody = state.newTrainMessageBody;
+            /*stateCopy =*/ return {
+                ...state,
+                newTrainMessageBody: "",
+                traMessages: [...state.traMessages, {id: 5, trainingMessage: trainBody}]
+            }
+            //let trainBody = stateCopy.newTrainMessageBody;
             //state.newTrainMessageBody = "";
-            stateCopy.newTrainMessageBody = "";
+            //stateCopy.newTrainMessageBody = "";
             //state.traMessages.push({id: 5, trainingMessage: trainBody});
-            stateCopy.traMessages.push({id: 5, trainingMessage: trainBody});
+            //stateCopy.traMessages.push({id: 5, trainingMessage: trainBody});
 
             //return state;
-            return stateCopy;
-        }
+            //return stateCopy;
+
         default : return state;
     }
 

@@ -16,7 +16,7 @@ const MyPosts = (props) => {
     ];*/
 
     //let postsElement = props.postsData.map(p => <Post id = {p.id} message = {p.message} counts = {p.counts}/>);
-    let postsElement = props.postsData.map(p => <Post id = {p.id} message = {p.message} counts = {p.counts}/>);
+    let postsElement = props.postsData.map(p => <Post id = {p.id} key = {p.id} message = {p.message} counts = {p.counts}/>);
 
 
     /*let posts = [

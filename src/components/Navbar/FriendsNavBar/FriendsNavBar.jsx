@@ -7,7 +7,8 @@ const FriendsNavBar = (props) => {
 
     let friendsNavbar = props.friend.map(navBarFriends => <Friend id = {navBarFriends.id}
                                                                   name = {navBarFriends.name}
-                                                                  img = {navBarFriends.img}/>);
+                                                                  img = {navBarFriends.img}
+                                                                  key = {navBarFriends.id}/>);
 
     /*<<<<<<<<======*/
     //let state = props.store.getState().sideBar;

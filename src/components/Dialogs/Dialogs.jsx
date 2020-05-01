@@ -38,13 +38,13 @@ const Dialogs = (props) => {
     ];*/
 
     /*let dialogsElements = props.state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);*/
-    let dialogsElements = state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} img = {dialog.img}/>);
+    let dialogsElements = state.dialogs.map(dialog => <DialogItem id = {dialog.id} name = {dialog.name} key = {dialog.id} img = {dialog.img}/>);
 
     /*let messagesElements = props.state.messages.map(message => <Message id = {message.id} message= {message.message}/>);*/
-    let messagesElements = state.messages.map(message => <Message id = {message.id} message= {message.message}/>);
+    let messagesElements = state.messages.map(message => <Message id = {message.id} message= {message.message} key = {message.id}/>);
 
     /*let trainingMess = props.state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);*/
-    let trainingMess = state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage}/>);
+    let trainingMess = state.traMessages.map(trainingmess => <TrainingMessage id = {trainingmess.id} trainingMessage = {trainingmess.trainingMessage} key = {trainingmess.id}/>);
 
     /*let newMessageBody = props.state.newMessageBody;*/
     let newMessageBody = state.newMessageBody;
