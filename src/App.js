@@ -11,6 +11,7 @@ import Users from "./components/Users/Users"
 import MyPosts from "./components/Profile/MyPosts/MyPosts";
 import {addPost, updateNewPostText} from "./redux/state";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
 
@@ -60,7 +61,7 @@ const App = (props) => {
                        />}/>
                 <Route path='/group' component={Group}/>
                 <Route path='/music' component={Music}/>
-                <Route path='/users' render={() => <Users/>} />
+                <Route path='/users' render={() => <UsersContainer/>} />
             </div>
         </div>
     );
