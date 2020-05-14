@@ -60,7 +60,7 @@ const App = (props) => {
                            updateNewPostText={props.updateNewPostText}*/
                        />}/>
                 <Route path='/group' component={Group}/>
-                <Route path='/music' component={Music}/>
+                <Route path='/music' render={() => <Music/>}/>
                 <Route path='/users' render={() => <UsersContainer/>} />
             </div>
         </div>
